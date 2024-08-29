@@ -16,6 +16,8 @@ At the root are several files with the extension `.txt`.  Despite the extension,
 * `options.txt` and `achievements.txt` start with a 4-byte header (checksum?) and are plaintext after that
 * `minecraftWorlds/` is a directory that is described below
 
+- Do note, all Text Files are stored as binary and not actually Text Files
+
 The actual world files are stored inside the `minecraftWorld` directory.  Each world is a subdirectory with a base64 name (for example, `/minecraftWorlds/igAAAJ8dAgA=`).  The rest of this document will be describing the content inside the world folders, from now on `/level.dat` means `/minecraftWorlds/<world>/level.dat`
 
 ## Worlds
