@@ -58,7 +58,7 @@ Other two are unknown.
 The level.dat file has different formats depending on the version.
 We have only looked at 0.1.0 and 1.9.19 formats.
 
-### 0.1.0 vs. 1.9.19 format
+ 0.1.0 vs. 1.9.19 format:
 ```
 This is the 0.1.0 format:
 {
