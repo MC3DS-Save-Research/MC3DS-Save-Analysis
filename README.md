@@ -92,11 +92,11 @@ This is the 0.1.0 format:
   rainTime: 34748,
   spawnMobs: 1b,
   worldStartCount: 4294967294l
-}```
+}
 
 This is the 1.9.19 format:
 
-```{
+{
   RandomSeed: 2685709277l,
   GameType: 1,
   Difficulty: 0,
@@ -158,4 +158,4 @@ This is the 1.9.19 format:
   StructuresForceGeneratedAttempted: 1b,
   ForcedMansionX: -2147483648,
   ForcedMansionZ: -2147483648
-}```
+}
