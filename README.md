@@ -59,7 +59,7 @@ The level.dat file has different formats depending on the version.
 We have only looked at 0.1.0 and 1.9.19 formats.
 
 This is the 0.1.0 format:
-`{
+```{
   DayCycleStopTime: -1,
   Difficulty: 1,
   ForceGameType: 0b,
@@ -90,9 +90,9 @@ This is the 0.1.0 format:
   rainTime: 34748,
   spawnMobs: 1b,
   worldStartCount: 4294967294l
-}`
+}```
 This is the 1.9.19 format:
-`{
+```{
   RandomSeed: 2685709277l,
   GameType: 1,
   Difficulty: 0,
@@ -154,4 +154,4 @@ This is the 1.9.19 format:
   StructuresForceGeneratedAttempted: 1b,
   ForcedMansionX: -2147483648,
   ForcedMansionZ: -2147483648
-}`
+}```
