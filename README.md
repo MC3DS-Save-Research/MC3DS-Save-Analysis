@@ -41,12 +41,16 @@ Each world has these files:
 
 ### CDB file format
 
-#### slt files
+#### SLT files
 
 *Currently working on this*
 
 Each file has a 128-byte header.  It starts with chunk metadata and then defines where the chunks are.  All data after the header is the chunks
 
 ### VDB file format
+There are 3 types of .vdb files.
+One of the types is based on NBT
+Other two are unknown.
 
-Unknown
+### Level.dat
+
