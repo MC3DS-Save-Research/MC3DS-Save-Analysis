@@ -51,7 +51,7 @@ All data after the header is the chunks
 
 ### VDB file format
 There are 3 types of .vdb files.
-One of the types is based on NBT
+One of the types is based on NBT.
 Other two are unknown.
 
 ### Level.dat
