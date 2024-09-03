@@ -6,14 +6,14 @@ This document in an *extremely* early stage, so it doesn't make much sense yet
 
 ## Credits
 
-Thanks to Cracko298, who helped massively
+- Thanks to Cracko298, Offroaders123, and Dexrn ZacAttack, who all helped massively
 
 ## ExtData
 
 At the root are several files with the extension `.txt`.  Despite the extension, these are not quite plain text files.
 
-* `clientId.txt` is a 19-digit ASCII decimal number.  The file padded to 128 KiB with null bytes
-* `options.txt` and `achievements.txt` start with a 4-byte header (checksum?) and are plaintext after that
+* `clientId.txt` is a 19-digit ASCII decimal number.  The file padded to 128 KiB with null bytes. 
+* `options.txt` and `achievements.txt` start with a 4-byte header (version of file) and are Text spaced with NULL Chars.
 * `minecraftWorlds/` is a directory that is described below.
 
 - Do note, all Text Files are stored as binary and not actually Text Files.
