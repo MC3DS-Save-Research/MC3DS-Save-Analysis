@@ -12,14 +12,13 @@ There is also an ImHex hexpat at https://github.com/DexrnZacAttack/MC3DS-Hexpat
 
 ## ExtData
 
-At the root are several files with the extension `.txt`.  Despite the extension, these are not quite plain text files.
+At the root are several files with the extension `.txt`.  Despite the extension, **these are not plain text files**.
+Instead of using Unicode character `0x20` (space) they use the NULL byte `0x00`, or character `0x01` depending on the game version.
 
 * `clientId.txt` is a 19-digit ASCII decimal number.  The file padded to 128 KiB with null bytes. 
-* `options.txt` and `achievements.txt` start with a 4-byte header (version of file) and are Text spaced with NULL Chars.
+* `options.txt` and `achievements.txt` start with a 4-byte header (version of file) and text is spaced with NULL Chars.
 * `minecraftWorlds/` is a directory that is described below.
 
-- Do note, all Text Files are stored as binary and not actually Text Files.
-- Instead of Using UniCode Character Byte `0x20` they use UniCode NULL Byte `0x00`, or UniCode Character `0x01` Depending on the SaveGame Version.
 
 The actual world files are stored inside the `minecraftWorld` directory.  Each world is a subdirectory with a base64 name (for example, `/minecraftWorlds/igAAAJ8dAgA=`).  The rest of this document will be describing the content inside the world folders, from now on `/level.dat` means `/minecraftWorlds/<world>/level.dat`
 
