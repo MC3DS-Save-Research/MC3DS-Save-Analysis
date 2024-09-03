@@ -4,9 +4,11 @@ This repo contains preliminary analysis on the extra data save files for Minecra
 
 This document in an *extremely* early stage, so it doesn't make much sense yet
 
+There is also an ImHex hexpat at https://github.com/DexrnZacAttack/MC3DS-Hexpat
+
 ## Credits
 
-- Thanks to Cracko298, Offroaders123, and Dexrn ZacAttack, who all helped massively
+- Thanks to [Cracko298](https://github.com/Cracko298), [Offroaders123](https://github.com/Offroaders123), and [Dexrn ZacAttack](https://github.com/DexrnZacAttack), who all helped massively
 
 ## ExtData
 
