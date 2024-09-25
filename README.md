@@ -26,7 +26,9 @@ The actual world files are stored inside the `minecraftWorld` directory.  Each w
 
 Each world has these files:
 
-* `level.dat`: a standard NBT file, can be parsed with some libraries such as [Dovetail](https://offroaders123.github.io/Dovetail/)
+* `level.dat`: a standard NBT file, can be parsed with some libraries such as [NBTify](https://github.com/Offroaders123/NBTify), and can be edited with a GUI in [Dovetail](https://offroaders123.github.io/Dovetail/).
+  - The file is saved with the uncompressed little-endian NBT variant, which coincides with that of Bedrock Edition's `level.dat` format.
+  - The file is prefixed with an [8-byte header](https://wiki.bedrock.dev/nbt/nbt-in-depth.html#bedrock-nbt-file-header), which consists of two `uint32` values (also in little-endian). The first one is the version of the save file, which matches the `StorageVersion` key in the NBT itself. The second value is a validation on the byte length of the NBT data itself, which is essentially the length of the whole file, subtract 8, for the header.
 * `level.dat_old`: a backup of `level.dat`. If `level.dat` become corrupted game reverts to previous SaveGame then.
 * `db/`
   * `savemarker`: 4-byte file
@@ -52,17 +54,21 @@ It starts with chunk metadata and then defines where the chunks are.
 All data after the header is the chunks
 
 ### VDB file format
-There are 3 types of .vdb files.
+There are 3 types of `.vdb` files.
 One of the types is based on NBT.
 Other two are unknown.
 
+How the data is stored in the file itself is unique to this database format, however the save data is for the most part related to similar values used in Bedrock Edition's save format.
+
+NBT is saved in uncompressed little-endian, and (as of yet) it doesn't seem to be using [VarInt-encoded NBT](https://wiki.vg/VarInt_And_VarLong), which is also synonymous with Bedrock Edition, which only uses VarInt encoding for NBT sent in network packets. I thought I'd only mention this extra part just in case we encounter 'malformed NBT', and we don't know why it isn't working.
+
 ### Level.dat
-The level.dat file has different formats depending on the version.
+The `level.dat` file has different formats depending on the version.
 We have only looked at 0.1.0 and 1.9.19 formats.
 
  0.1.0 vs. 1.9.19 format:
-```
-This is the 0.1.0 format:
+```jsonc
+// This is the 0.1.0 format:
 {
   DayCycleStopTime: -1,
   Difficulty: 1,
@@ -96,7 +102,7 @@ This is the 0.1.0 format:
   worldStartCount: 4294967294l
 }
 
-This is the 1.9.19 format:
+// This is the 1.9.19 format:
 
 {
   RandomSeed: 2685709277l,
@@ -161,3 +167,4 @@ This is the 1.9.19 format:
   ForcedMansionX: -2147483648,
   ForcedMansionZ: -2147483648
 }
+```
