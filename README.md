@@ -43,6 +43,9 @@ Each world has these files:
     * `newindex.vdb`: The main index, has backup (index.cdb), if becomes corrupted, reverts to previous SaveGame then.
     * `slt0.vdb`, `slt1.vdb`, ...: data
 
+# Warning
+Most information on the CDB and VDB files here is currently outdated.  See [minecraft3ds.h](https://github.com/MC3DS-Save-Research/3DS-Chunker/blob/main/mc3ds/minecraft3ds.h) for the latest information.  A better explaination will be written once the files are fully understood.
+
 ### CDB file format
 
 #### SLT files
