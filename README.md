@@ -46,15 +46,54 @@ Each world has these files:
 # Warning
 Most information on the CDB and VDB files here is currently outdated.  See [minecraft3ds.h](https://github.com/MC3DS-Save-Research/3DS-Chunker/blob/main/mc3ds/minecraft3ds.h) for the latest information.  A better explaination will be written once the files are fully understood.
 
+Both the CDB and VDB files are made of of several "subfiles", which each have their own header and are effectively seperate files.  
+
+### Indexes
+
+Inside the `db/cdb` and `db/vdb` folders there are index files named `newindex.cdb` and `newindex.vdb`.  These link data (such as chunks) to specific subfiles within the CDB or VDB files.  
+There are also `index.cdb` and `index.vdb` files, which are a backup of the new index files and don't seem to be used.
+
+#### newindex.cdb
+Each index has three parts:
+* Header
+
+The header contains metadata about the entries and pointers:
+```c
+struct Index {
+    uint32 constant0; // always 0x2
+    uint32 entryCount;
+    uint32 unknown0;
+    uint32 entrySize;
+    uint32 pointerCount;
+    uint32 constant1;
+};
+```
+* Pointers
+
+This part is unknown, it contains several 32-bit integers that sometimes correspond to the `slt###.cdb` files.
+* Entries
+
+The entries map region coordinates and some other metadata to the subfiles within the CDB files:
+```c
+struct ChunkParameters {
+    int8 unknown0;
+    int8 unknown1;
+};
+struct CDBEntry {
+    Position position;
+    uint16 slot; // slot (corresponds to a CDB file), unless it's <16?
+    uint16 subfile; // subfile within the slot
+    uint16 constant0; // always 0x20FF
+    uint16 constant1; // always 0xA
+    ChunkParameters parameters; // also in the chunk; usually 0x1, sometimes 0x2 or 0x3, and on large worlds as high as 0x6e
+    uint16 constant2; // always 0x8000, subfile count?
+};
+```
+
 ### CDB file format
+#### Subfiles
 
-#### SLT files
-
-*Currently working on this*
-
-Each file has a 128-byte header.
-It starts with chunk metadata and then defines where the chunks are.
-All data after the header is the chunks
+Each subfile contains compressed block data for the chunk
 
 ### VDB file format
 There are 4 types of `.vdb` files.
